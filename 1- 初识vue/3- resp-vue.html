@@ -1,0 +1,52 @@
+<!--
+ * @Description: hello vue using component
+ * @Author: farley@bmcode.com
+ * @Date: 2019-07-01 14:17:15
+ * @LastEditTime: 2019-07-01 16:11:07
+-->  
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">   
+    <title>hello vue</title> 
+  </head>   
+</html> 
+<body>
+  <div id="app"> {{msg}}</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+<script> 
+
+  var rdata = {a:1,msg:"vue, 请别走太快!"}
+  var vm = new Vue({    
+    el: '#app',
+    data:rdata,
+  })
+  
+  // 获得这个实例上的属性
+  // 返回源数据中对应的字段
+  vm.a == rdata.a // => true
+
+  // 设置属性也会影响到原始数据
+  vm.a = 2
+  rdata.a // => 2
+
+  // ……反之亦然
+  rdata.a = 3
+  vm.a // => 3
+
+  console.log(vm.a)
+  
+  //只有当实例被创建时 rdata 中存在的属性才是响应式的，原理见vue后面的getter 和 setter
+  //所以要提前声明要响应的数据
+  vm.$data.b = 'hi'
+  console.log(rdata.b) // undefined
+
+  //$内部属性
+  console.log(vm.$el === document.getElementById('app'))
+  console.log(vm.$data, rdata, vm.$data === rdata)
+  setTimeout(() => {
+    rdata.msg = "vue, 2秒之后的更新！"
+  }, 2000);
+</script>

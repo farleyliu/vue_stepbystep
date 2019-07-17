@@ -1,0 +1,54 @@
+<!--
+ * @Description: css and event
+ * @Author: farley@bmcode.com
+ * @Date: 2019-07-01 14:17:15
+ * @LastEditTime: 2019-07-01 20:08:36
+-->  
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">   
+    <title>hello vue</title> 
+  </head>   
+</html> 
+<body>
+    <!-- 一次只能绑定一个class，下面这样写第二次无效 -->
+    <div id="css-example1" class="static" :class="{ active: isActive }" :class="classObject"
+    > </div>
+    <div id="css-example2" class="static" v-bind:class="classObject"
+    > </div>
+     
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+<script>
+  var vm1 = new Vue({
+    el:"#css-example1",
+    data:{
+      isActive:true,
+      hasError:true,
+      classObject: {
+        active: true,
+        'text-danger': true,
+        tstcss:false
+      }
+    }
+  })
+
+  var vm = new Vue({
+    el:"#css-example2",
+    data: {
+      isActive: true,
+      error: null
+    },
+    computed: {
+      classObject: function () {
+        return {
+          active: this.isActive && !this.error,
+          'text-danger': this.error && this.error.type === 'fatal'
+        }
+      }
+    }
+  }) 
+</script>

@@ -1,0 +1,22 @@
+{
+  "name": "first_webpack",
+  "version": "0.0.1", 
+  "author": "farley@bmcode.com",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --open --hot",
+    "build": "webpack"
+  }, 
+  "dependencies": {
+    "vue": "^2.1.0"
+  }, 
+  "devDependencies": {
+    "webpack": "^3.12.0", 
+    "webpack-dev-server": "^2.11.1",
+    "vue-style-loader": "^1.0.0",
+    "less-loader": "^2.2.3",
+    "sass-loader":"^1.0.0",
+    "css-loader": "^0.25.0",
+    "node-sass":"4.12.0"
+  } 
+}

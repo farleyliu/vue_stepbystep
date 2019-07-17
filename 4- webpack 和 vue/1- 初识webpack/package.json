@@ -1,0 +1,14 @@
+{
+  "name": "first_webpack",
+  "version": "0.0.1", 
+  "author": "farley@bmcode.com",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --open --hot",
+    "build": "webpack --progress --hide-modules"
+  }, 
+  "devDependencies": {
+    "webpack": "^3.12.0", 
+    "webpack-dev-server": "^2.11.1"
+  } 
+}

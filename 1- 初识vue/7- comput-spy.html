@@ -1,0 +1,49 @@
+<!--
+ * @Description: hello vue using component
+ * @Author: farley@bmcode.com
+ * @Date: 2019-07-01 14:17:15
+ * @LastEditTime: 2019-07-01 18:32:08
+-->  
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">   
+    <title>hello vue</title> 
+  </head>   
+</html> 
+<body>
+    <div id="app">
+        <p>Original message: "{{ msg }}"</p>
+        <p>Computed reversed message: "{{ revMsg }}"</p>
+    </div>
+    <span id="app2">
+      计算compute：{{now}} 
+
+    </span>
+     
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+<script>  
+ var vm = new Vue({
+   el:"#app2",
+   computed:{
+     now : function(){
+       return Date.now()
+     }
+   }
+ })
+  
+  var vm3 = new Vue({    
+    el: '#app',
+    data:{
+      msg:"一步一步学vue，慢就是快！"
+    },
+    computed: {
+      revMsg: function(){
+        return  this.msg.split('').reverse().join('')
+      }
+    }
+  })
+</script>

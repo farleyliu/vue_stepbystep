@@ -1,0 +1,37 @@
+<!--
+ * @Description: css and event
+ * @Author: farley@bmcode.com
+ * @Date: 2019-07-01 14:17:15
+ * @LastEditTime: 2019-07-01 20:32:58
+-->  
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">   
+    <title>hello vue</title> 
+  </head>   
+</html> 
+<body>
+    
+    <div id="css-example1" class="static" v-bind:style="styleObject"
+    > </div>
+     
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+<script>
+  var vm1 = new Vue({
+    el:"#css-example1",
+    data:{
+      isActive:true,
+      hasError:true,
+      styleObject: {
+        color: 'red',
+        fontSize: '13px'
+      }
+    }
+  })
+
+ 
+</script>

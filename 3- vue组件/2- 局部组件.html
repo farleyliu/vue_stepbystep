@@ -1,0 +1,37 @@
+<!--
+ * @Description: componet
+ * @Author: farley@bmcode.com
+ * @Date: 2019-07-01 14:17:15
+ * @LastEditTime: 2019-07-02 12:36:34
+-->  
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">   
+    <title>hello vue</title> 
+  </head>   
+</html> 
+<body>    
+    <div id="app">
+        <component-a></component-a>
+        <component-b></component-b>
+        <component-c></component-c>
+    </div>
+     
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+<script>
+    var componentA =  {template:"<span>component-aa</span>"}
+    var componentB =  {template:"<span>component-bb</span>"}
+    var componentC =  {template:"<span>component-cc</span>"}
+    new Vue({
+      el: '#app',
+      components:{
+          'component-a': componentA,
+          'component-b': componentB,
+          'component-c': componentC
+      }        
+  }) 
+</script>

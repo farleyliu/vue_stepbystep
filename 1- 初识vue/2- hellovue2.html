@@ -1,0 +1,36 @@
+<!--
+ * @Description: hello vue using component
+ * @Author: farley@bmcode.com
+ * @Date: 2019-07-01 14:17:15
+ * @LastEditTime: 2019-07-01 15:24:18
+-->  
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">   
+    <title>hello vue</title> 
+  </head> 
+  <body>       
+      <hellovue id="app-7" v-bind:msg = "message">这句话会被覆盖</hellovue>       
+  </body>
+</html> 
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+<script>     
+    Vue.component('hellovue', {
+          props: ['msg'], //添加属性
+          template: '<span>{{msg}} vue,我又来了，等等我！</span>'
+          }) 
+    //必须创建vue对象，自定义组件才能被实例化显示
+    var app7 = new Vue({
+      el: '#app-7' ,
+      data: {
+                message: 'vue！我来了,等等我！'
+            }
+    })   
+
+    // - html里可以引用vue自定义的组件。但真正的初始化需要new vue对象才能完成。也就是说，dom不会自动渲染自定义组件。 在vue里叫**mount**
+    // - 内部的数据将被覆盖
+    // - 自定义组件可以添加任意多属性
+</script>

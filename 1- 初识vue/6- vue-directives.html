@@ -1,0 +1,54 @@
+<!--
+ * @Description: hello vue using component
+ * @Author: farley@bmcode.com
+ * @Date: 2019-07-01 14:17:15
+ * @LastEditTime: 2019-07-01 17:04:08
+-->  
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">   
+    <title>hello vue</title> 
+  </head>   
+</html> 
+<body>
+    <!-- jxs 语法 -->    
+    <a v-bind:href="url">{{url}}</a> 
+    <p v-if="seen">现在你看到我了</p>
+    <a id= "app2" :href="url">{{url}}</a>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+<script> 
+ 
+ var vm1 = new Vue({    
+    el: 'p',
+    data:{
+      seen: false
+    }     
+  }) 
+
+  var vm = new Vue({    
+    el: 'a',
+    data:{
+      url:"https://www.baidu.com"
+    }     
+  })
+ 
+  
+  var vm3 = new Vue({    
+    el: '#app2',
+    data:{
+      url:"https://www.baidu.com"
+    }     
+  }) 
+  
+  setTimeout(() => {
+    vm1.$data.seen = true
+    vm.$data.url = "https://www.bmcode.com" 
+    vm3.$data.url = "https://www.bmcode.com"
+  }, 3000);
+   
+</script>

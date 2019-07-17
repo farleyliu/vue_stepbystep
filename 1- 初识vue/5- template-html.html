@@ -1,0 +1,50 @@
+<!--
+ * @Description: hello vue using component
+ * @Author: farley@bmcode.com
+ * @Date: 2019-07-01 14:17:15
+ * @LastEditTime: 2019-07-01 16:42:54
+-->  
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">   
+    <title>hello vue</title> 
+  </head>   
+</html> 
+<body>
+    <span v-once>这个将不会改变: {{ msg }}</span>
+    <span id = "app" >会改变: {{ msg }}</span>
+    <!-- html Mustache 语法不能作用在 HTML 特性上，
+      遇到这种情况应该使用 v-bind 指令 -->
+    <div v-bind:id="dynamicId">{{second_msg.split('').reverse().join('') }}</div>  
+    
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+<script> 
+
+  var rdata = {a:1,msg:"vue, 请别走太快!"}
+  var vm = new Vue({    
+    el: 'span',
+    data:rdata     
+  })
+  var vm2 = new Vue({    
+    el: '#app',
+    data:rdata     
+  })
+
+  var vm3 = new Vue({
+    el:"div",
+    data:{
+      dynamicId: "id_new",
+      second_msg: "不着急，休息一下！"
+    }
+  })
+ 
+
+  setTimeout(() => {
+    rdata.msg="vue, 我来了，2秒后的更新"
+  }, 2000);
+   
+</script>
